@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_commerce/models/product_model.dart';
 import 'package:mobile_commerce/screens/Cart/cart_screen.dart';
+import 'package:mobile_commerce/screens/Favorite/favorite.dart';
 import 'package:mobile_commerce/screens/Home/Widget/categoryItems.dart';
 import 'package:mobile_commerce/screens/Home/Widget/product_cart.dart';
 
@@ -28,7 +29,22 @@ class _MyHomePageState extends State<MyHomePage> {
           Padding(
             padding: const EdgeInsets.only(right: 20.0),
             child: Row(
+              spacing: 5,
               children: [
+                IconButton(
+                  style: IconButton.styleFrom(
+                    backgroundColor: Color(0xffF5F5F5),
+                    padding: const EdgeInsets.all(15),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Favorite()),
+                    );
+                  },
+                  iconSize: 30,
+                  icon: const Icon(Icons.favorite),
+                ),
                 IconButton(
                   style: IconButton.styleFrom(
                     backgroundColor: Color(0xffF5F5F5),
