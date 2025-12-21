@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_commerce/models/product_model.dart';
+import 'package:mobile_commerce/screens/Cart/cart_screen.dart';
 import 'package:mobile_commerce/screens/Home/Widget/categoryItems.dart';
 import 'package:mobile_commerce/screens/Home/Widget/product_cart.dart';
 
@@ -26,14 +27,32 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 20.0),
-            child: IconButton(
-              style: IconButton.styleFrom(
-                backgroundColor: Color(0xffF5F5F5),
-                padding: const EdgeInsets.all(15),
-              ),
-              onPressed: () {},
-              iconSize: 30,
-              icon: const Icon(Icons.notifications_outlined),
+            child: Row(
+              children: [
+                IconButton(
+                  style: IconButton.styleFrom(
+                    backgroundColor: Color(0xffF5F5F5),
+                    padding: const EdgeInsets.all(15),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => CartScreen()),
+                    );
+                  },
+                  iconSize: 30,
+                  icon: const Icon(Icons.shopping_basket_rounded),
+                ),
+                IconButton(
+                  style: IconButton.styleFrom(
+                    backgroundColor: Color(0xffF5F5F5),
+                    padding: const EdgeInsets.all(15),
+                  ),
+                  onPressed: () {},
+                  iconSize: 30,
+                  icon: const Icon(Icons.notifications_outlined),
+                ),
+              ],
             ),
           ),
         ],
