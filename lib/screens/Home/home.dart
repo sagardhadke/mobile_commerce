@@ -1,11 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_commerce/features/on_boarding/presentation/pages/login_page.dart';
 import 'package:mobile_commerce/models/product_model.dart';
 import 'package:mobile_commerce/screens/Cart/cart_screen.dart';
 import 'package:mobile_commerce/screens/Favorite/favorite.dart';
 import 'package:mobile_commerce/screens/Home/Widget/categoryItems.dart';
 import 'package:mobile_commerce/screens/Home/Widget/product_cart.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -64,9 +66,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     backgroundColor: Color(0xffF5F5F5),
                     padding: const EdgeInsets.all(15),
                   ),
-                  onPressed: () {},
+                  onPressed: () async {
+                    SharedPreferences pref =
+                        await SharedPreferences.getInstance();
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginScreen()),
+                    );
+                    pref.clear();
+                  },
                   iconSize: 30,
-                  icon: const Icon(Icons.notifications_outlined),
+                  icon: const Icon(Icons.logout),
                 ),
               ],
             ),
